@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-white">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Work — LeafArt</title>
+  <meta name="description" content="Explore LeafArt's mural projects around the world — filterable by category, with stories from the communities we've worked in." />
+  <meta name="theme-color" content="#718355" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="LeafArt home"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 21C5 21 3 16 3 11C3 6 6 3 13 3C18 3 21 4 21 4C21 4 21 11 18 16C15.5 20 11 21 11 21Z" fill="#CFE1B9" stroke="#E9F5DB" stroke-width="1.4" stroke-linejoin="round"/><path d="M17 7C13 9 9 13 6 19" stroke="#E9F5DB" stroke-width="1.4" stroke-linecap="round"/></svg>LeafArt</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="mission.html">Mission</a>
+        <a href="our-work.html" class="active">Our Work</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+        <a href="donate.html" class="nav-donate">Donate</a>
+      </nav>
+      <div class="nav-right">
+        <button class="cart-btn" aria-label="Shopping cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span class="cart-count" style="display:none;">0</span></button>
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ PAGE BANNER ============ -->
+    <section class="page-banner">
+      <div class="hero-bg" style="background-image:url('https://picsum.photos/seed/work-banner/1600/700');"></div>
+      <div class="hero-overlay"></div>
+      <div class="container">
+        <p class="breadcrumb">Home / Our Work</p>
+        <h1>Our Work</h1>
+        <p>From quiet alleys to busy boulevards — explore the murals we've created with communities around the world.</p>
+      </div>
+    </section>
+
+    <!-- ============ FILTERABLE GALLERY ============ -->
+    <section class="section bg-white">
+      <div class="container">
+        <div class="section-head text-center reveal">
+          <span class="eyebrow">Mural Projects</span>
+          <h2 class="section-title">Explore the Gallery</h2>
+          <p class="section-lead">Filter by project type to see the breadth of work our artists bring to life.</p>
+        </div>
+
+        <div class="filters reveal" role="group" aria-label="Filter projects">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="community">Community</button>
+          <button class="filter-btn" data-filter="education">Education</button>
+          <button class="filter-btn" data-filter="heritage">Heritage</button>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal" data-category="community">
+            <div class="project-thumb"><img src="https://picsum.photos/seed/proj-1/800/600" alt="Mural depicting a riverside scene on a community wall" loading="lazy" /></div>
+            <div class="project-body">
+              <div class="project-meta"><span class="tag">Lisbon</span><span class="tag">2024</span></div>
+              <h3>Riverside Bloom</h3>
+              <p>A 40-meter mural celebrating the river that shaped the neighborhood, painted with input from 60 local residents.</p>
+              <a href="#" class="btn btn-secondary">View Project</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal delay-1" data-category="community">
+            <div class="project-thumb"><img src="https://picsum.photos/seed/proj-2/800/600" alt="Bold abstract mural on an urban building" loading="lazy" /></div>
+            <div class="project-body">
+              <div class="project-meta"><span class="tag">Detroit</span><span class="tag">2023</span></div>
+              <h3>Voices Rising</h3>
+              <p>A portrait series honoring local changemakers, transforming a vacant lot wall into a gathering point.</p>
+              <a href="#" class="btn btn-secondary">View Project</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal delay-2" data-category="heritage">
+            <div class="project-thumb"><img src="https://picsum.photos/seed/proj-3/800/600" alt="Colorful heritage-themed mural on a residential facade" loading="lazy" /></div>
+            <div class="project-body">
+              <div class="project-meta"><span class="tag">Oaxaca</span><span class="tag">2023</span></div>
+              <h3>Garden of Memory</h3>
+              <p>Inspired by indigenous textile patterns, this mural preserves and celebrates local craft traditions.</p>
+              <a href="#" class="btn btn-secondary">View Project</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="education">
+            <div class="project-thumb"><img src="https://picsum.photos/seed/proj-4/800/600" alt="School yard mural painted with students" loading="lazy" /></div>
+            <div class="project-body">
+              <div class="project-meta"><span class="tag">Nairobi</span><span class="tag">2022</span></div>
+              <h3>Dream Big Schoolyard</h3>
+              <p>Students co-designed and helped paint this mural across their primary school's perimeter wall.</p>
+              <a href="#" class="btn btn-secondary">View Project</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal delay-1" data-category="education">
+            <div class="project-thumb"><img src="https://picsum.photos/seed/proj-5/800/600" alt="Library wall mural with literary motifs" loading="lazy" /></div>
+            <div class="project-body">
+              <div class="project-meta"><span class="tag">Mumbai</span><span class="tag">2022</span></div>
+              <h3>The Reading Wall</h3>
+              <p>A literacy-themed mural outside a public library, encouraging young readers from the neighborhood.</p>
+              <a href="#" class="btn btn-secondary">View Project</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal delay-2" data-category="heritage">
+            <div class="project-thumb"><img src="https://picsum.photos/seed/proj-6/800/600" alt="Heritage mural depicting local history" loading="lazy" /></div>
+            <div class="project-body">
+              <div class="project-meta"><span class="tag">Porto</span><span class="tag">2021</span></div>
+              <h3>Tiles of Time</h3>
+              <p>A modern reinterpretation of traditional azulejo tilework, spanning an entire historic street corner.</p>
+              <a href="#" class="btn btn-secondary">View Project</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MAP SECTION ============ -->
+    <section class="section bg-lightest">
+      <div class="container">
+        <div class="section-head text-center reveal">
+          <span class="eyebrow">Where We Work</span>
+          <h2 class="section-title">Cities We've Worked In</h2>
+          <p class="section-lead">Our murals span 30 cities and counting across six continents.</p>
+        </div>
+        <div class="map-wrap reveal">
+          <iframe
+            title="Map showing cities where LeafArt has created murals"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-130%2C-40%2C150%2C60&amp;layer=mapnik"
+            height="460"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="section bg-white">
+      <div class="container">
+        <div class="section-head text-center reveal">
+          <span class="eyebrow">In Their Words</span>
+          <h2 class="section-title">Voices From the Community</h2>
+          <p class="section-lead">The real impact of a mural lives in the people who pass it every day.</p>
+        </div>
+        <div class="testimonial-grid">
+          <figure class="testimonial reveal">
+            <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+            <blockquote>The wall used to be covered in grime and nobody looked twice. Now kids stop to point at it on the way to school. It gave our street a heartbeat.</blockquote>
+            <figcaption class="author"><img src="https://picsum.photos/seed/test-1/100/100" alt="Portrait of Rosa M." loading="lazy" /><span><strong>Rosa M.</strong><span>Resident, Lisbon</span></span></figcaption>
+          </figure>
+          <figure class="testimonial reveal delay-1">
+            <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+            <blockquote>Painting alongside a professional muralist showed our students that their ideas matter. That mural is theirs forever.</blockquote>
+            <figcaption class="author"><img src="https://picsum.photos/seed/test-2/100/100" alt="Portrait of Mr. Adeyemi" loading="lazy" /><span><strong>Mr. Adeyemi</strong><span>Teacher, Nairobi</span></span></figcaption>
+          </figure>
+          <figure class="testimonial reveal delay-2">
+            <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+            <blockquote>LeafArt didn't just paint a wall — they listened to our history and put it where everyone could see it. We feel seen.</blockquote>
+            <figcaption class="author"><img src="https://picsum.photos/seed/test-3/100/100" alt="Portrait of Camila T." loading="lazy" /><span><strong>Camila T.</strong><span>Resident, Oaxaca</span></span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand" aria-label="LeafArt home"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 21C5 21 3 16 3 11C3 6 6 3 13 3C18 3 21 4 21 4C21 4 21 11 18 16C15.5 20 11 21 11 21Z" fill="#CFE1B9" stroke="#E9F5DB" stroke-width="1.4" stroke-linejoin="round"/><path d="M17 7C13 9 9 13 6 19" stroke="#E9F5DB" stroke-width="1.4" stroke-linecap="round"/></svg>LeafArt</a>
+          <p>A non-profit on a mission to transform communities through murals and public wall art — one wall, one artist, one neighborhood at a time.</p>
+          <div class="socials">
+            <a href="#" class="social-link" aria-label="LeafArt on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" class="social-link" aria-label="LeafArt on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="social-link" aria-label="LeafArt on X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" class="social-link" aria-label="LeafArt on YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.5-.45-5.18a2.78 2.78 0 0 0-1.95-2C18.88 4.33 12 4.33 12 4.33s-6.88 0-8.6.49a2.78 2.78 0 0 0-1.95 2C1 8.5 1 12 1 12s0 3.5.45 5.18a2.78 2.78 0 0 0 1.95 2c1.72.49 8.6.49 8.6.49s6.88 0 8.6-.49a2.78 2.78 0 0 0 1.95-2C23 15.5 23 12 23 12zM9.75 15.5v-7l6 3.5z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul><li><a href="index.html">Home</a></li><li><a href="mission.html">Mission</a></li><li><a href="our-work.html">Our Work</a></li><li><a href="shop.html">Shop</a></li><li><a href="donate.html">Donate</a></li><li><a href="contact.html">Contact</a></li></ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>48 Mural Lane, Studio 3<br/>Brooklyn, NY 11201</span></div>
+          <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>hello@leafart.org</span></div>
+          <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+1 (212) 555-0147</span></div>
+        </div>
+        <div class="footer-col">
+          <h4>Stay in the Loop</h4>
+          <p>Get stories from the wall, new mural reveals, and ways to get involved.</p>
+          <form class="newsletter-form" aria-label="Newsletter signup">
+            <input type="email" placeholder="Your email address" aria-label="Email address" required />
+            <button type="submit" class="btn btn-light">Subscribe</button>
+          </form>
+          <p class="newsletter-note">We respect your inbox. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="container">© 2025 LeafArt NGO. All rights reserved.</div></div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

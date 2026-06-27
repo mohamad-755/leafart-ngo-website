@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-white">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeafArt — Art Lives on Every Wall</title>
+  <meta name="description" content="LeafArt is a non-profit transforming communities through murals and public wall art. Empowering artists, beautifying spaces, and building stronger communities." />
+  <meta name="theme-color" content="#718355" />
+
+  <!-- Google Fonts: Playfair Display (headings) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="LeafArt home">
+        <!-- inline leaf icon -->
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M11 21C5 21 3 16 3 11C3 6 6 3 13 3C18 3 21 4 21 4C21 4 21 11 18 16C15.5 20 11 21 11 21Z" fill="#CFE1B9" stroke="#E9F5DB" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M17 7C13 9 9 13 6 19" stroke="#E9F5DB" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        LeafArt
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html" class="active">Home</a>
+        <a href="mission.html">Mission</a>
+        <a href="our-work.html">Our Work</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+        <a href="donate.html" class="nav-donate">Donate</a>
+      </nav>
+
+      <div class="nav-right">
+        <button class="cart-btn" aria-label="Shopping cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          <span class="cart-count" style="display:none;">0</span>
+        </button>
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-bg" style="background-image:url('https://picsum.photos/seed/leafart-hero/1600/1000');"></div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <h1>Art Lives on Every Wall</h1>
+        <p>LeafArt empowers artists to transform blank walls into vibrant murals — turning overlooked spaces into landmarks of community pride, creativity, and lasting social impact.</p>
+        <div class="hero-actions">
+          <a href="our-work.html" class="btn btn-light">Discover Our Work</a>
+          <a href="donate.html" class="btn btn-secondary" style="color:#fff;border-color:#fff;">Donate Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ IMPACT STATS ============ -->
+    <section class="section bg-lightest">
+      <div class="container">
+        <div class="section-head text-center reveal">
+          <span class="eyebrow">Our Impact</span>
+          <h2 class="section-title">Color With a Purpose</h2>
+          <p class="section-lead">Every mural we paint tells a story — of the artists behind it and the community it lifts. Here's what we've built together.</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card reveal">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7c0-1.1-.9-2-2-2h-3l-2-2H6a2 2 0 0 0-2 2v13"/><path d="M2 19h20"/><path d="M4 11h16v8H4z"/></svg>
+            </div>
+            <div class="stat-number">120+</div>
+            <div class="stat-label">Murals Painted</div>
+          </div>
+          <div class="stat-card reveal delay-1">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="stat-number">30</div>
+            <div class="stat-label">Cities Reached</div>
+          </div>
+          <div class="stat-card reveal delay-2">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="stat-number">500</div>
+            <div class="stat-label">Artists Supported</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURED MURALS ============ -->
+    <section class="section bg-white">
+      <div class="container">
+        <div class="section-head text-center reveal">
+          <span class="eyebrow">Featured Work</span>
+          <h2 class="section-title">Walls We've Brought to Life</h2>
+          <p class="section-lead">A glimpse of recent murals created with local artists and neighborhoods around the world.</p>
+        </div>
+        <div class="mural-grid">
+          <a href="our-work.html" class="mural-card reveal">
+            <img src="https://picsum.photos/seed/mural-a/800/1000" alt="Colorful community mural on a city building wall" loading="lazy" />
+            <div class="mural-overlay"><h3>Riverside Bloom</h3><span>Lisbon, Portugal</span></div>
+          </a>
+          <a href="our-work.html" class="mural-card reveal delay-1">
+            <img src="https://picsum.photos/seed/mural-b/800/1000" alt="Large abstract street art mural painted on an urban wall" loading="lazy" />
+            <div class="mural-overlay"><h3>Voices Rising</h3><span>Detroit, USA</span></div>
+          </a>
+          <a href="our-work.html" class="mural-card reveal delay-2">
+            <img src="https://picsum.photos/seed/mural-c/800/1000" alt="Vibrant painted mural covering a residential building facade" loading="lazy" />
+            <div class="mural-overlay"><h3>Garden of Memory</h3><span>Oaxaca, Mexico</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHY LEAFART ============ -->
+    <section class="section bg-lightest">
+      <div class="container">
+        <div class="split">
+          <div class="split-media reveal">
+            <img src="https://picsum.photos/seed/leafart-why/900/700" alt="An artist painting a mural on a tall wall with scaffolding" loading="lazy" />
+          </div>
+          <div class="split-body reveal delay-1">
+            <span class="eyebrow">Why LeafArt?</span>
+            <h2>More Than Paint on a Wall</h2>
+            <p>We believe public art is a public good. A mural can reclaim a neglected corner, spark conversation, and give a neighborhood a renewed sense of identity and belonging.</p>
+            <p>LeafArt partners directly with local artists, schools, and residents so that every project reflects the people who live there. We pay artists fairly, source sustainable materials, and design each mural through community workshops.</p>
+            <p>The result is art that doesn't just decorate a space — it transforms how people feel about where they live.</p>
+            <a href="mission.html" class="btn btn-primary" style="margin-top:10px;">Read Our Mission</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DONATION TEASER ============ -->
+    <section class="teaser">
+      <div class="hero-bg" style="background-image:url('https://picsum.photos/seed/leafart-donate/1600/700');"></div>
+      <div class="hero-overlay"></div>
+      <div class="container reveal">
+        <h2>Help Us Paint the Next Wall</h2>
+        <p>Your support funds art supplies, fair artist pay, and community programs in underserved neighborhoods. Every contribution leaves a lasting mark.</p>
+        <a href="donate.html" class="btn btn-light">Donate Now</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER (included on every page) ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand" aria-label="LeafArt home">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M11 21C5 21 3 16 3 11C3 6 6 3 13 3C18 3 21 4 21 4C21 4 21 11 18 16C15.5 20 11 21 11 21Z" fill="#CFE1B9" stroke="#E9F5DB" stroke-width="1.4" stroke-linejoin="round"/>
+              <path d="M17 7C13 9 9 13 6 19" stroke="#E9F5DB" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+            LeafArt
+          </a>
+          <p>A non-profit on a mission to transform communities through murals and public wall art — one wall, one artist, one neighborhood at a time.</p>
+          <div class="socials">
+            <a href="#" class="social-link" aria-label="LeafArt on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" class="social-link" aria-label="LeafArt on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="social-link" aria-label="LeafArt on X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" class="social-link" aria-label="LeafArt on YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.5-.45-5.18a2.78 2.78 0 0 0-1.95-2C18.88 4.33 12 4.33 12 4.33s-6.88 0-8.6.49a2.78 2.78 0 0 0-1.95 2C1 8.5 1 12 1 12s0 3.5.45 5.18a2.78 2.78 0 0 0 1.95 2c1.72.49 8.6.49 8.6.49s6.88 0 8.6-.49a2.78 2.78 0 0 0 1.95-2C23 15.5 23 12 23 12zM9.75 15.5v-7l6 3.5z"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="mission.html">Mission</a></li>
+            <li><a href="our-work.html">Our Work</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>48 Mural Lane, Studio 3<br/>Brooklyn, NY 11201</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>hello@leafart.org</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+1 (212) 555-0147</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Stay in the Loop</h4>
+          <p>Get stories from the wall, new mural reveals, and ways to get involved.</p>
+          <form class="newsletter-form" aria-label="Newsletter signup">
+            <label for="footer-email" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Email address</label>
+            <input type="email" id="footer-email" placeholder="Your email address" required />
+            <button type="submit" class="btn btn-light">Subscribe</button>
+          </form>
+          <p class="newsletter-note">We respect your inbox. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">© 2025 LeafArt NGO. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
