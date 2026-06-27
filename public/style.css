@@ -190,17 +190,27 @@ section {
   height: 74px;
 }
 
-.brand {
-  display: flex;
+  .brand {
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-family: var(--font-head);
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: var(--white);
-}
+  }
 
-.brand svg { width: 30px; height: 30px; }
+  /* Real "I Leaf Art" logo sits on a white pill so the forest-green
+     artwork stays legible on the dark green navbar / footer. */
+  .brand-logo {
+  height: 42px;
+  width: auto;
+  background-color: var(--white);
+  padding: 6px 14px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .brand:hover .brand-logo {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  }
+  .footer .brand-logo { height: 46px; }
 
 .nav-links {
   display: flex;
