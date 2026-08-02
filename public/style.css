@@ -1404,6 +1404,15 @@ body.page-leaving {
   .split { grid-template-columns: 1fr; }
   .split.reverse .split-media { order: 0; }
   .contact-layout { grid-template-columns: 1fr; }
+
+  .footer-grid { grid-template-columns: 1fr; }
+
+  .filter-btn {
+    min-height: 44px;
+    padding: 12px 22px;
+    display: inline-flex;
+    align-items: center;
+  }
 }
 
 @media (max-width: 560px) {
@@ -1413,4 +1422,11 @@ body.page-leaving {
   .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-actions .btn { width: 100%; }
   .form-card { padding: 28px; }
+
+  .page-banner { padding: 72px 0; }
+
+  .custom-amount { padding: 28px 20px; }
+  .amount-input { flex-wrap: wrap; }
+  .amount-field { flex: 1 1 100%; min-width: 0; }
+  .amount-input .btn { width: 100%; }
 }
