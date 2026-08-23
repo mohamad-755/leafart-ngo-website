@@ -7,6 +7,17 @@
   <meta name="description" content="Take a piece of I Leaf Art home. Shop art prints, tote bags, postcards and more — all proceeds support our mural artists and community programs." />
   <meta name="theme-color" content="#718355" />
 
+  <!-- TODO(analytics): G-XXXXXXXXXX is a placeholder GA4 Measurement ID and does not send data
+       anywhere. Replace it with a real ID once a GA4 property exists — see main.js for the
+       event-tracking calls (trackEvent) this powers once live. -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
   <!-- TODO(seo): placeholder domain — see index.html for details -->
   <link rel="canonical" href="https://ileafart.org/shop.html" />
   <meta property="og:type" content="website" />
@@ -156,7 +167,7 @@
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
-          <ul><li><a href="index.html">Home</a></li><li><a href="mission.html">Mission</a></li><li><a href="our-work.html">Our Work</a></li><li><a href="get-involved.html">Get Involved</a></li><li><a href="shop.html">Shop</a></li><li><a href="donate.html">Donate</a></li><li><a href="contact.html">Contact</a></li></ul>
+          <ul><li><a href="index.html">Home</a></li><li><a href="mission.html">Mission</a></li><li><a href="our-work.html">Our Work</a></li><li><a href="get-involved.html">Get Involved</a></li><li><a href="shop.html">Shop</a></li><li><a href="donate.html">Donate</a></li><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li></ul>
         </div>
         <div class="footer-col">
           <h4>Contact Info</h4>
@@ -170,8 +181,13 @@
           <p>Get stories from the wall, new mural reveals, and ways to get involved.</p>
           <form class="newsletter-form" aria-label="Newsletter signup">
             <input type="email" name="email" placeholder="Your email address" aria-label="Email address" required />
+            <div class="hp-field" aria-hidden="true">
+              <label for="newsletter-hp">Leave this field empty</label>
+              <input type="text" id="newsletter-hp" name="_gotcha" tabindex="-1" autocomplete="off" />
+            </div>
             <button type="submit" class="btn btn-light">Subscribe</button>
           </form>
+          <p class="form-success" data-form-message role="status" aria-live="polite"></p>
           <p class="newsletter-note">We respect your inbox. Unsubscribe anytime.</p>
         </div>
       </div>

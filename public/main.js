@@ -18,6 +18,31 @@
   var FORM_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
   var FORM_ENDPOINT_CONFIGURED = FORM_ENDPOINT.indexOf("YOUR_FORM_ID") === -1;
 
+  /* ---------- Analytics (GA4) ----------
+     Inert until the G-XXXXXXXXXX placeholder in every page's <head> is replaced
+     with a real GA4 Measurement ID — until then `gtag` either doesn't exist or
+     ships no data anywhere, so this safely does nothing. */
+  function trackEvent(eventName, eventData) {
+    if (typeof gtag !== "undefined") {
+      gtag("event", eventName, eventData || {});
+    }
+  }
+
+  function initAnalyticsClicks() {
+    var CLICK_EVENTS = {
+      "donate.html": "click_donate",
+      "get-involved.html": "click_volunteer",
+      "our-work.html": "click_our_work",
+    };
+    Object.keys(CLICK_EVENTS).forEach(function (href) {
+      document.querySelectorAll('a[href="' + href + '"]').forEach(function (link) {
+        link.addEventListener("click", function () {
+          trackEvent(CLICK_EVENTS[href], { location: window.location.pathname });
+        });
+      });
+    });
+  }
+
   var PREFERS_REDUCED_MOTION =
     window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -197,20 +222,40 @@
     var links = document.querySelector(".nav-links");
     if (!toggle || !links) return;
 
+    var navLinkEls = links.querySelectorAll("a");
+    var mobileQuery = window.matchMedia("(max-width: 860px)");
+
+    /* Below 860px the closed menu is only pushed off-screen with a transform,
+       not removed from the document — without this, keyboard users could Tab
+       into links that are invisible until the hamburger is opened. */
+    function syncLinkFocusability() {
+      var hideFromTab = mobileQuery.matches && !links.classList.contains("open");
+      navLinkEls.forEach(function (link) {
+        link.tabIndex = hideFromTab ? -1 : 0;
+      });
+    }
+
     toggle.addEventListener("click", function () {
       var isOpen = links.classList.toggle("open");
       toggle.classList.toggle("open", isOpen);
       toggle.setAttribute("aria-expanded", String(isOpen));
+      syncLinkFocusability();
     });
 
     // Close the menu when a link is clicked (mobile)
-    links.querySelectorAll("a").forEach(function (link) {
+    navLinkEls.forEach(function (link) {
       link.addEventListener("click", function () {
         links.classList.remove("open");
         toggle.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
+        syncLinkFocusability();
       });
     });
+
+    if (mobileQuery.addEventListener) {
+      mobileQuery.addEventListener("change", syncLinkFocusability);
+    }
+    syncLinkFocusability();
   }
 
   /* ---------- Scroll Reveal ---------- */
@@ -331,7 +376,18 @@
   }
 
   /* ---------- Shared form submit helper ---------- */
+  function isHoneypotFilled(form) {
+    var honeypot = form.querySelector('input[name="_gotcha"]');
+    return !!(honeypot && honeypot.value);
+  }
+
   function submitToFormBackend(form, onDone) {
+    if (isHoneypotFilled(form)) {
+      // Spam bots fill every field, including the hidden honeypot — pretend
+      // success without actually sending anything so they don't learn to skip it.
+      onDone(true);
+      return;
+    }
     if (!FORM_ENDPOINT_CONFIGURED) {
       console.warn(
         "[I Leaf Art] Form backend not configured — this submission was not sent anywhere. " +
@@ -349,12 +405,39 @@
       .catch(function () { onDone(false); });
   }
 
+  /* Shows a success/error message in a form's [data-form-message] element and
+     auto-dismisses it after a few seconds. Shared by the contact and newsletter forms. */
+  function showFormMessage(form, ok, text) {
+    var msg = form.querySelector("[data-form-message]");
+    if (!msg) return;
+    clearTimeout(msg._hideTimer);
+    msg.textContent = text;
+    msg.classList.remove("form-success", "form-error");
+    msg.classList.add(ok ? "form-success" : "form-error", "show");
+    msg._hideTimer = setTimeout(function () {
+      msg.classList.remove("show");
+    }, 6000);
+  }
+
+  /* Marks a form as submitting: shows the spinner and blocks re-entrant submits
+     without using the native `disabled` attribute, which would blur the button
+     and disrupt keyboard/screen-reader focus mid-submit. */
+  function setSubmitting(form, isSubmitting) {
+    form.dataset.submitting = isSubmitting ? "true" : "false";
+    var btn = form.querySelector('button[type="submit"]');
+    if (!btn) return;
+    btn.classList.toggle("is-loading", isSubmitting);
+    btn.setAttribute("aria-disabled", isSubmitting ? "true" : "false");
+  }
+
   /* ---------- Contact Form ---------- */
   function initContactForm() {
     var form = document.querySelector("#contact-form");
     if (!form) return;
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+
+      if (form.dataset.submitting === "true") return;
 
       if (!form.checkValidity()) {
         form.classList.remove("shake");
@@ -364,18 +447,17 @@
         return;
       }
 
-      var submitBtn = form.querySelector('button[type="submit"]');
-      if (submitBtn) submitBtn.classList.add("is-loading");
-
+      setSubmitting(form, true);
       submitToFormBackend(form, function (ok) {
-        if (submitBtn) submitBtn.classList.remove("is-loading");
-        var msg = form.querySelector(".form-success");
-        if (msg) {
-          msg.textContent = ok
+        setSubmitting(form, false);
+        showFormMessage(
+          form,
+          ok,
+          ok
             ? "Thank you! Your message has been sent. We'll be in touch soon."
-            : "Something went wrong sending your message — please email us directly instead.";
-          msg.classList.add("show");
-        }
+            : "Something went wrong sending your message — please email us directly instead."
+        );
+        trackEvent("form_submit", { form_type: "contact" });
         if (ok) form.reset();
       });
     });
@@ -387,19 +469,29 @@
     forms.forEach(function (form) {
       form.addEventListener("submit", function (e) {
         e.preventDefault();
-        var submitBtn = form.querySelector('button[type="submit"]');
-        if (submitBtn) submitBtn.classList.add("is-loading");
+
+        if (form.dataset.submitting === "true") return;
+
+        var input = form.querySelector('input[type="email"]');
+        if (input && !input.checkValidity()) {
+          input.reportValidity();
+          return;
+        }
+
+        setSubmitting(form, true);
         submitToFormBackend(form, function (ok) {
-          if (submitBtn) submitBtn.classList.remove("is-loading");
-          var input = form.querySelector("input");
-          if (input) {
+          setSubmitting(form, false);
+          showFormMessage(
+            form,
+            ok,
+            ok ? "Thank you for subscribing!" : "Something went wrong — please try again later."
+          );
+          trackEvent("form_submit", { form_type: "newsletter" });
+          if (ok && input) {
             input.value = "";
-            input.placeholder = ok ? "Thank you for subscribing!" : "Something went wrong — try again later";
-            if (ok) {
-              input.classList.remove("pulse-success");
-              void input.offsetWidth;
-              input.classList.add("pulse-success");
-            }
+            input.classList.remove("pulse-success");
+            void input.offsetWidth;
+            input.classList.add("pulse-success");
           }
         });
       });
@@ -444,6 +536,29 @@
         goToGiveDirectly(input && input.value ? input.value : null);
       });
     }
+  }
+
+  /* ---------- FAQ Accordion ---------- */
+  function initFaq() {
+    var items = document.querySelectorAll(".faq-item");
+    if (!items.length) return;
+
+    items.forEach(function (item) {
+      var btn = item.querySelector(".faq-question");
+      if (!btn) return;
+      btn.addEventListener("click", function () {
+        var isOpen = item.classList.contains("active");
+        items.forEach(function (other) {
+          other.classList.remove("active");
+          var otherBtn = other.querySelector(".faq-question");
+          if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
+        });
+        if (!isOpen) {
+          item.classList.add("active");
+          btn.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
   }
 
   /* ---------- Page Transitions ----------
@@ -504,6 +619,8 @@
     initContactForm();
     initNewsletter();
     initDonateButtons();
+    initFaq();
+    initAnalyticsClicks();
     initPageTransitions();
   });
 })();

@@ -7,6 +7,17 @@
   <meta name="description" content="I Leaf Art is a creative social initiative based in Beirut, Lebanon, that uses mural art to inspire communities and transform public spaces through community-driven art." />
   <meta name="theme-color" content="#718355" />
 
+  <!-- TODO(analytics): G-XXXXXXXXXX is a placeholder GA4 Measurement ID and does not send data
+       anywhere. Replace it with a real ID once a GA4 property exists — see main.js for the
+       event-tracking calls (trackEvent) this powers once live. -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
   <!-- TODO(seo): og:url/twitter and canonical below use a placeholder domain (ileafart.org, matching the
        placeholder contact email) since the real production domain wasn't provided. Replace SITE_URL in the
        tags below on every page once the site's real domain is confirmed. -->
@@ -224,6 +235,7 @@
             <li><a href="shop.html">Shop</a></li>
             <li><a href="donate.html">Donate</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="faq.html">FAQ</a></li>
           </ul>
         </div>
 
@@ -251,8 +263,13 @@
           <form class="newsletter-form" aria-label="Newsletter signup">
             <label for="footer-email" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Email address</label>
             <input type="email" id="footer-email" name="email" placeholder="Your email address" required />
+            <div class="hp-field" aria-hidden="true">
+              <label for="newsletter-hp">Leave this field empty</label>
+              <input type="text" id="newsletter-hp" name="_gotcha" tabindex="-1" autocomplete="off" />
+            </div>
             <button type="submit" class="btn btn-light">Subscribe</button>
           </form>
+          <p class="form-success" data-form-message role="status" aria-live="polite"></p>
           <p class="newsletter-note">We respect your inbox. Unsubscribe anytime.</p>
         </div>
       </div>
