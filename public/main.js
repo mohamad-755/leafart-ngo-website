@@ -223,9 +223,9 @@
     if (!toggle || !links) return;
 
     var navLinkEls = links.querySelectorAll("a");
-    var mobileQuery = window.matchMedia("(max-width: 860px)");
+    var mobileQuery = window.matchMedia("(max-width: 980px)");
 
-    /* Below 860px the closed menu is only pushed off-screen with a transform,
+    /* Below 980px the closed menu is only pushed off-screen with a transform,
        not removed from the document — without this, keyboard users could Tab
        into links that are invisible until the hamburger is opened. */
     function syncLinkFocusability() {

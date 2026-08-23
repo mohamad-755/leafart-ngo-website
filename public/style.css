@@ -493,7 +493,7 @@ section {
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-@media (max-width: 860px) {
+@media (max-width: 980px) {
   .nav-links a {
     opacity: 0;
     transform: translateX(-14px);
@@ -1450,7 +1450,7 @@ body.page-leaving {
   .split { gap: 40px; }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 980px) {
   .hamburger { display: flex; }
   .nav-links {
     position: fixed;
