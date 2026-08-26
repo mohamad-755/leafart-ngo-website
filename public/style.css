@@ -749,6 +749,11 @@ section {
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
 }
+.cards-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
 .feature-card {
   background-color: var(--white);
   border: 1px solid var(--green-mid);
@@ -1475,6 +1480,7 @@ body.page-leaving {
   .stats-grid,
   .mural-grid,
   .cards-3,
+  .cards-4,
   .projects-grid,
   .products-grid,
   .tiers-grid,
