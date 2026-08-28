@@ -4,7 +4,7 @@
    - Scroll reveal animations (IntersectionObserver)
    - Faux cart counter
    - Project gallery filtering
-   - Contact form + newsletter (wired to a form backend — see FORM_ENDPOINT)
+   - Contact form (wired to a form backend — see FORM_ENDPOINT)
    - Donate tier buttons (scroll to bank/OMT instructions until a payment processor is connected)
    ============================================================ */
 
@@ -463,41 +463,6 @@
     });
   }
 
-  /* ---------- Newsletter ---------- */
-  function initNewsletter() {
-    var forms = document.querySelectorAll(".newsletter-form");
-    forms.forEach(function (form) {
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        if (form.dataset.submitting === "true") return;
-
-        var input = form.querySelector('input[type="email"]');
-        if (input && !input.checkValidity()) {
-          input.reportValidity();
-          return;
-        }
-
-        setSubmitting(form, true);
-        submitToFormBackend(form, function (ok) {
-          setSubmitting(form, false);
-          showFormMessage(
-            form,
-            ok,
-            ok ? "Thank you for subscribing!" : "Something went wrong — please try again later."
-          );
-          trackEvent("form_submit", { form_type: "newsletter" });
-          if (ok && input) {
-            input.value = "";
-            input.classList.remove("pulse-success");
-            void input.offsetWidth;
-            input.classList.add("pulse-success");
-          }
-        });
-      });
-    });
-  }
-
   /* ---------- Donate Tiers (scroll to bank/OMT fallback until a payment processor is connected) ---------- */
   function initDonateButtons() {
     var buttons = document.querySelectorAll("[data-donate-tier]");
@@ -617,7 +582,6 @@
     initTilt();
     initRipple();
     initContactForm();
-    initNewsletter();
     initDonateButtons();
     initFaq();
     initAnalyticsClicks();
