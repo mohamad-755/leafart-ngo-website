@@ -1504,7 +1504,8 @@ body.page-leaving {
   .section { padding: 64px 0; }
   .form-row { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr; }
-  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-content { text-align: center; margin: 0 auto; }
+  .hero-actions { flex-direction: column; align-items: stretch; justify-content: center; }
   .hero-actions .btn { width: 100%; }
   .form-card { padding: 28px; }
 
