@@ -1508,10 +1508,11 @@ body.page-leaving {
 }
 
 @media (max-width: 560px) {
+  .container { padding: 0 32px; }
   .section { padding: 64px 0; }
   .form-row { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr; }
-  .hero-content { text-align: center; margin: 0 auto; }
+  .hero-content { text-align: center; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
   .hero-content p { text-align: center; }
   .hero-actions { flex-direction: column; align-items: stretch; justify-content: center; }
   .hero-actions .btn { width: 100%; }
