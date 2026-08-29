@@ -61,9 +61,7 @@ body {
 }
 
 p {
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
+  text-align: left;
 }
 
 h1, h2, h3, h4 {
