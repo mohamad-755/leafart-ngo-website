@@ -1,33 +1,39 @@
-# leafart-ngo-website
+# I Leaf Art — NGO Website
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+Website for [I Leaf Art](https://www.instagram.com/i.leaf.art/), a Lebanese non-profit based in Mtayleb, Beirut, founded in 2012. The organization creates community murals across Lebanon, partnering with artists, volunteers, children, schools, and families to transform public spaces into symbols of hope, identity, and connection.
 
-## Built with v0
+Live site: https://leafart-ngo-website.vercel.app
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
+## About the project
 
-[Continue working on v0 →](https://v0.app/chat/projects/prj_cjjS4cMN2J2tIKITB88D9XAOpYzk)
+A multi-page marketing and outreach site covering the organization's mission, past mural projects, ways to get involved, donations, and contact information. Built as a static site — plain HTML, CSS, and vanilla JavaScript, no framework or build step — and deployed on Vercel.
 
-## Getting Started
+## Pages
 
-First, run the development server:
+- `index.html` — home / hero
+- `mission.html` — the organization's mission and story
+- `our-work.html` — past mural and community projects
+- `get-involved.html` — volunteering and partnership info
+- `donate.html` — donation info
+- `contact.html` — contact details and form
+- `faq.html` — frequently asked questions
+- `shop.html` — merchandise (currently unlinked from navigation, kept for future use)
+
+## Structure
+
+```
+public/
+  *.html        page templates
+  style.css     shared styles
+  main.js       shared interactivity (nav, forms, analytics events)
+  images/       site imagery
+  sitemap.xml, robots.txt
+```
+
+## Running locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+Serves the `public/` directory at [http://localhost:3000](http://localhost:3000).
