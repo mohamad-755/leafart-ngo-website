@@ -1478,6 +1478,7 @@ body.page-leaving {
     transform: translateY(-150%);
     transition: transform var(--transition);
     height: calc(100vh - 74px);
+    height: calc(100dvh - 74px);
     overflow-y: auto;
   }
   .nav-links.open { transform: translateY(0); }
