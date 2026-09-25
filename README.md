@@ -1,6 +1,6 @@
-# I Leaf Art — NGO Website
+# I Leaf Art Website
 
-Website for [I Leaf Art](https://www.instagram.com/i.leaf.art/), a Lebanese non-profit based in Mtayleb, Beirut, founded in 2012. The organization creates community murals across Lebanon, partnering with artists, volunteers, children, schools, and families to transform public spaces into symbols of hope, identity, and connection.
+Website for [I Leaf Art](https://www.instagram.com/i.leaf.art/), a Lebanese non-profit based in Beirut, founded in 2012. The organization creates community murals across Lebanon, partnering with artists, volunteers, children, schools, and families to transform public spaces into symbols of hope, identity, and connection.
 
 Live site: https://leafart-ngo-website.vercel.app
 
