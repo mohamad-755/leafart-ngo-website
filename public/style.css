@@ -853,7 +853,7 @@ section {
   border: 3px solid var(--green-light);
 }
 .team-card h3 { font-size: 1.2rem; margin-bottom: 4px; }
-.team-role { color: var(--green-mid-dark); font-weight: 600; font-size: 0.9rem; }
+.team-role { color: var(--green-mid-dark); font-weight: 600; font-size: 0.9rem; text-align: center; }
 
 /* ---------- Project Gallery (Our Work) ---------- */
 .filters {
@@ -1525,4 +1525,9 @@ body.page-leaving {
   .amount-input { flex-wrap: wrap; }
   .amount-field { flex: 1 1 100%; min-width: 0; }
   .amount-input .btn { width: 100%; }
+
+  .filters { display: grid; grid-template-columns: 1fr 1fr; }
+  .filter-btn { width: 100%; justify-content: center; }
+  .filter-indicator { display: none; }
+  .filter-btn.active { background-color: var(--green-deepest); border-color: var(--green-deepest); color: var(--white); }
 }
