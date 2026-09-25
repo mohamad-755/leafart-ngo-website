@@ -60,10 +60,6 @@ body {
   overflow-x: hidden;
 }
 
-p {
-  text-align: left;
-}
-
 h1, h2, h3, h4 {
   font-family: var(--font-head);
   color: var(--green-deepest);
@@ -736,7 +732,7 @@ section {
 }
 .teaser .container { position: relative; z-index: 2; }
 .teaser h2 { color: var(--white); font-size: clamp(1.9rem, 4vw, 2.8rem); margin-bottom: 18px; }
-.teaser p { color: rgba(255, 255, 255, 0.92); max-width: 560px; margin: 0 auto 32px; font-size: 1.1rem; }
+.teaser p { color: rgba(255, 255, 255, 0.92); max-width: 560px; margin: 0 auto 32px; font-size: 1.1rem; text-align: center; }
 
 .teaser .container.reveal h2,
 .teaser .container.reveal p,
