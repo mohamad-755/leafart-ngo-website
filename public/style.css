@@ -46,9 +46,12 @@
   padding: 0;
 }
 
+/* clip (not hidden) so off-screen slide-in elements can't widen the mobile layout viewport,
+   without turning body into a scroll container and breaking the sticky navbar */
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -57,7 +60,7 @@ body {
   background-color: var(--white);
   line-height: 1.6;
   font-size: 17px;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4 {
@@ -1353,14 +1356,15 @@ textarea { resize: vertical; min-height: 140px; }
 }
 
 /* ---------- Page Transitions ---------- */
-body {
-  animation: leafart-page-in 0.32s ease;
-}
-body.page-leaving {
-  animation: leafart-page-out 0.22s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-}
+/* Browser-native page-to-page animation; unsupported browsers (Firefox) just navigate normally. */
+@view-transition { navigation: auto; }
+.navbar { view-transition-name: site-header; }
+.nav-links.open { view-transition-name: site-menu; }
+::view-transition-old(site-menu) { animation: leafart-page-out 0.15s ease-out both; }
+::view-transition-old(root) { animation: leafart-page-out 0.18s cubic-bezier(0.4, 0, 1, 1) both; }
+::view-transition-new(root) { animation: leafart-page-in 0.38s cubic-bezier(0.22, 0.61, 0.36, 1) 0.12s both; }
+
 /* Entrance animations only play on the first page of a browsing session */
-html.repeat-visit body,
 html.repeat-visit .hero h1,
 html.repeat-visit .hero p,
 html.repeat-visit .hero-actions,
@@ -1368,12 +1372,12 @@ html.repeat-visit .page-banner .breadcrumb,
 html.repeat-visit .page-banner h1,
 html.repeat-visit .page-banner p { animation: none; }
 @keyframes leafart-page-in {
-  from { opacity: 0; transform: scale(0.992); }
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: none; }
 }
 @keyframes leafart-page-out {
-  from { opacity: 1; transform: translateY(0) scale(1); }
-  to { opacity: 0; transform: translateY(-8px) scale(0.992); }
+  from { opacity: 1; transform: none; }
+  to { opacity: 0; transform: translateY(-8px); }
 }
 
 /* ---------- Scroll Animations ---------- */
@@ -1421,7 +1425,7 @@ html.repeat-visit .page-banner p { animation: none; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .btn:hover, .stat-card:hover, .feature-card:hover { transform: none; }
-  body, body.page-leaving { animation: none; }
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 
   /* Turn off every decorative animation added by the animation pass — keep
      essential state changes (menu open, filter results, form success)

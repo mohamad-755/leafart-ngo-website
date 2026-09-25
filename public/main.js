@@ -529,49 +529,6 @@
     });
   }
 
-  /* ---------- Page Transitions ----------
-     This is a multi-page static site (hard navigation between .html files, no router), so we fade the
-     current page out via a CSS class before navigating, and every page fades itself in on load (see
-     body/.page-leaving animations in style.css). Doesn't touch the .reveal scroll-in system — that's
-     per-element and runs independently after each fresh page load. Falls back to instant navigation
-     when the user prefers reduced motion, and clears any stuck state on bfcache restore (back/forward). */
-  function initPageTransitions() {
-    var TRANSITION_MS = 220;
-
-    window.addEventListener("pageshow", function () {
-      document.body.classList.remove("page-leaving");
-    });
-
-    if (PREFERS_REDUCED_MOTION || REPEAT_VISIT) return;
-
-    document.addEventListener("click", function (e) {
-      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-
-      var link = e.target.closest && e.target.closest("a[href]");
-      if (!link) return;
-
-      var hrefAttr = link.getAttribute("href");
-      if (!hrefAttr || hrefAttr.indexOf("#") === 0) return; // bare/in-page anchors
-      if (link.target && link.target !== "_self") return;
-      if (link.hasAttribute("download")) return;
-
-      var url;
-      try {
-        url = new URL(link.href, window.location.href);
-      } catch (err) {
-        return;
-      }
-      if (url.origin !== window.location.origin) return;
-      if (!/\.html?$/.test(url.pathname)) return; // only intercept page-to-page navigations
-
-      e.preventDefault();
-      document.body.classList.add("page-leaving");
-      setTimeout(function () {
-        window.location.href = link.href;
-      }, TRANSITION_MS);
-    });
-  }
-
   /* ---------- Init ---------- */
   document.addEventListener("DOMContentLoaded", function () {
     initHeroWords();
@@ -588,6 +545,5 @@
     initDonateButtons();
     initFaq();
     initAnalyticsClicks();
-    initPageTransitions();
   });
 })();
