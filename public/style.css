@@ -605,6 +605,7 @@ section {
   max-width: 560px;
   margin: 0 auto;
   font-size: 1.15rem;
+  text-align: center;
   animation: leafart-fade-up 0.8s var(--ease-out) 0.24s both;
 }
 .breadcrumb {
@@ -613,6 +614,7 @@ section {
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 18px;
+  text-align: center;
   animation: leafart-fade-up 0.8s var(--ease-out) both;
 }
 
@@ -1361,6 +1363,14 @@ body {
 body.page-leaving {
   animation: leafart-page-out 0.22s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
+/* Entrance animations only play on the first page of a browsing session */
+html.repeat-visit body,
+html.repeat-visit .hero h1,
+html.repeat-visit .hero p,
+html.repeat-visit .hero-actions,
+html.repeat-visit .page-banner .breadcrumb,
+html.repeat-visit .page-banner h1,
+html.repeat-visit .page-banner p { animation: none; }
 @keyframes leafart-page-in {
   from { opacity: 0; transform: scale(0.992); }
   to { opacity: 1; transform: none; }

@@ -46,6 +46,9 @@
   var PREFERS_REDUCED_MOTION =
     window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // Set by the inline <head> script on every page after the first one of a browsing session.
+  var REPEAT_VISIT = document.documentElement.classList.contains("repeat-visit");
+
   /* ---------- Scroll progress bar ---------- */
   function initScrollProgress() {
     var bar = document.querySelector(".scroll-progress");
@@ -75,7 +78,7 @@
 
   /* ---------- Word-by-word hero heading reveal ---------- */
   function initHeroWords() {
-    if (PREFERS_REDUCED_MOTION) return;
+    if (PREFERS_REDUCED_MOTION || REPEAT_VISIT) return;
     var heading = document.querySelector(".hero h1");
     if (!heading) return;
 
@@ -539,7 +542,7 @@
       document.body.classList.remove("page-leaving");
     });
 
-    if (PREFERS_REDUCED_MOTION) return;
+    if (PREFERS_REDUCED_MOTION || REPEAT_VISIT) return;
 
     document.addEventListener("click", function (e) {
       if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
