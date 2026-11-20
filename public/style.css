@@ -134,6 +134,13 @@ section {
   font-size: 1.1rem;
   text-wrap: pretty;
 }
+.section-lead + .section-lead { margin-top: 16px; }
+.section-lead-closing {
+  font-family: var(--font-head);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--green-deepest);
+}
 
 .section-head {
   margin-bottom: 56px;
